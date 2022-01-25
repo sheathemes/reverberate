@@ -226,17 +226,17 @@ CREDITS
 <!------------Smooth Scroll Script------------>
 
 <!--
-       NPF IMAGES READJUSTMENT | @glenthemes
-       v2.0 [last updated: 2021-04-18]
--->
-<link href="//dl.dropbox.com/s/bnoj86mka0bkplb/npf-override.css" rel="stylesheet">
-<script src="//dl.dropbox.com/s/vwrm94pcg4c9e71/npf-evenize.js"></script>
+        NPF images fix v3.0 by @glenthemes [2021]
+        💌 git.io/JRBt7
+--->
+<script src="//npf-images-v3.github.io/script.js"></script>
+<link rel="stylesheet" href="//npf-images-v3.github.io/recon.css">
 
-<style type="text/css">
+<style tmblr-npf>
 
 :root {
-    --NPF-Image-Spacing: 4px;
-    --NPF-Bottom-Gap-From-Captions: 1em;
+    --NPF-Caption-Spacing:0.5em;
+    --NPF-Image-Spacing:10px;
     
     /*---------- NIGHT MODE COLOR CUSTOMIZATION ----------*/
     
@@ -505,7 +505,7 @@ small,sub,sup {
  
 h1,h2,h3 {
     font-weight: 700;
-    font-size: 1.4em;
+    font-size: 1.3em;
     color: {color:bold};
 }
  
@@ -1114,6 +1114,14 @@ body.night .user:hover {
     background-color: transparent;
     color: {color:links};
     border: 2px solid {color:accent};
+}
+
+.npf_inst, #npf_a0rsv {
+    margin-bottom: 20px;
+}
+
+.npf_inst.photo-origin, #npf_wmw57 {
+    padding-top: 10px;
 }
 
 /*----------POST INFO & PERMALINKS----------*/
@@ -2666,13 +2674,16 @@ width="{LogoWidth}" height="{LogoHeight}" alt="{SourceTitle}" />
 {block:Title}<div class="title">{Title}</div>{/block:Title}
 <div class="caption">{block:NotReblog} <figcaption> {Body} </figcaption> {/block:NotReblog} {block:RebloggedFrom} <div class="reblog-list">
  
-{block:Reblogs} <div class="{block:isOriginalEntry}original-reblog{/block:isOriginalEntry}"> <div class="reblog-header">
+{block:Reblogs} 
+<div class="{block:isOriginalEntry}original-reblog{/block:isOriginalEntry}">
+<div class="source-head">
+<div class="reblog-header">
  
 {block:IsActive} <a class="{block:isNotOriginalEntry}sub-reblog{/block:isNotOriginalEntry}" href="{Permalink}" target="_blank"> <img src="{PortraitURL-64}"> </a> {/block:IsActive}
  
 {block:IsDeactivated} <span class="inactive {block:isNotOriginalEntry} sub-reblog{/block:isNotOriginalEntry}"> <img src="{PortraitURL-64}"> </span> {/block:IsDeactivated} {block:IsActive} <a target="_blank" href="{Permalink}" class="user"> {Username} </a> {/block:IsActive}
  
-{block:IsDeactivated} <span class="inactive deactivated">{Username} </span> {/block:IsDeactivated} </div> <div class="reblog-content"> {Body} </div> </div> {/block:Reblogs} </div> {/block:RebloggedFrom} </div>
+{block:IsDeactivated} <span class="inactive deactivated">{Username} </span> {/block:IsDeactivated} </div> <div class="reblog-content"> {Body} </div> </div> </div>{/block:Reblogs} </div> {/block:RebloggedFrom} </div>
 </div>
 {/block:Text}
  
