@@ -23,7 +23,7 @@ CREDITS
  
 > Responsive tumblr videos and external iframes script: https://nouvae.tumblr.com/post/176815415055/tutorial-responsive-tumblr-videos-and-external 
 
-> NPF Photoset Fix: https://glenthemes.tumblr.com/post/638038350689976320/npf-mobile-photoset-fix-by-glenthemes-photos
+> NPF images fix v3.0: https://github.com/npf-images-v3/npf-images-v3.github.io/blob/main/WELCOME.md
  
 > Tippy.js: https://atomiks.github.io/tippyjs/
  
@@ -32,8 +32,6 @@ CREDITS
 > Icons: https://boxicons.com/
 
 > Smoothscroll script: https://cdnjs.com/libraries/smoothscroll
-
-> Inline images resizing script: https://gukthemes.com/post/169692012691/inline-images-resizing-script
 
 > Fade-in tabs: https://www.w3schools.com/howto/howto_js_tabs.asp
 
@@ -66,6 +64,7 @@ CREDITS
     <meta name="viewport" content="width=device-width, initial-scale=1">
  
 <!--------------Custom Options-------------->
+
 <meta name="color:background" content="#f8f8f8" />
 <meta name="color:accent" content="#f0a866" />
 <meta name="color:accented text" content="#ffffff" />
@@ -111,6 +110,29 @@ CREDITS
 <meta name="color:tag bar" content="#ffffff" />
 <meta name="color:tag bar background" content="#111319" />
 <meta name="color:tag bar hover" content="#f0a866" />
+
+<meta name="color:&#x25C6;&#x3A;&#x2A;&#x3A;&#x25C7;&#x3A;&#x2A;&#x3A;&#x25C6;&#x3A;&#x2A;&#x3A;&#x25C7;&#x3A;&#x2A;&#x3A;&#x25C6;">
+
+<!------------------- night mode ------------------>
+
+<meta name="color:accent night" content="#F0A866" />
+<meta name="color:accented text night" content="#000000" />
+<meta name="color:background night" content="#313131" />
+<meta name="color:text night" content="#ffffff" />
+<meta name="color:bold night" content="#ffffff" />
+<meta name="color:italic night" content="#ffffff" />
+<meta name="color:links night" content="#ffffff" />
+<meta name="color:link hover night" content="#F0A866" />
+<meta name="color:posts background night" content="#414141" />
+<meta name="color:posts title night" content="#ffffff" />
+<meta name="color:post borders night" content="#323131" />
+<meta name="color:navigation night" content="#ffffff" />
+<meta name="color:navigation background night" content="#313131" />
+<meta name="color:question night" content="#ffffff" />
+<meta name="color:question background night" content="#494949" />
+<meta name="color:permalink night" content="#ffffff" />
+<meta name="color:permalink background night" content="#494949" />
+<meta name="color:permalink hover night" content="#eeeeee" />
 
  
 <meta name="select:Background Attachment" content="fixed" title="fixed">
@@ -235,29 +257,30 @@ CREDITS
 <style tmblr-npf>
 
 :root {
-    --NPF-Caption-Spacing:0.5em;
-    --NPF-Image-Spacing:10px;
+    --NPF-Caption-Spacing:1em;
+    --NPF-Image-Spacing:4px;
     
     /*---------- NIGHT MODE COLOR CUSTOMIZATION ----------*/
     
-    --accent-night: #F0A866;
-    --accented-text-night: #ffffff;
-    --background-night: #313131;
+    --accent-night: {color:accent night};
+    --accented-text-night: {color:accented text night};
+    --background-night: {color:background night};
     --lightbox-background-night: rgba(49, 49, 49, 0.6);
-    --text-night: #fff;
-    --bold-night: #F0A866;
-    --italic-night: #F0A866;
-    --links-night: #fff;
-    --link-hover-night: #F0A866;
-    --posts-background-night: #414141;
-    --posts-title-night: #ffffff;
-    --navigation-night: #fff;
-    --navigation-background-night: #313131;
-    --question-night: #ffffff;
-    --question-background-night: #525252;
-    --permalink-night: #fff;
-    --permalink-background-night: #525252;
-    --permalink-hover-night: #eeeeee;
+    --text-night: {color:text night};
+    --bold-night: {color:bold night};
+    --italic-night: {color:italic night};
+    --links-night: {color:links night};
+    --link-hover-night: {color:link hover night};
+    --posts-background-night: {color:posts background night};
+    --posts-title-night: {color:posts title night};
+    --post-borders-night: {color:post borders night};
+    --navigation-night: {color:navigation night};
+    --navigation-background-night: {color:navigation background night};
+    --question-night: {color:question night};
+    --question-background-night: {color:question background night};
+    --permalink-night: {color:permalink night};
+    --permalink-background-night: {color:permalink background night};
+    --permalink-hover-night: {color:permalink hover night};
 }
  
 /*----------FADE-IN ANIMATION----------*/
@@ -666,7 +689,7 @@ body.night #pagination a:hover {
 #content-content-box, #faq-cont-content-box, #about-cont-content-box, #tag-cont-content-box {
     width: {select:post size}px;
     position: relative;
-    margin: 120px auto 60px;
+    margin: 120px auto 0;
     padding-top: 35px;
     {block:PermalinkPage}
     width: 540px;
@@ -871,6 +894,11 @@ body.night .faq-question h3 {
     padding: 10px;
 }
 
+body.night .faq-answer {
+    background-color: var(--question-background-night)!important;
+    color: var(--question-night)!important;
+}
+
 .faqp h3 {
     font-family: 'Roboto Slab', serif;
     color: {color:links};
@@ -931,8 +959,13 @@ body.night .about-container h2 {
     display: inline-block;
     margin: 10px 11px;
     list-style: none;
-    border-bottom: 1px solid {color:post borders};
-    padding-bottom: 20px;
+    border: 1px solid {color:post borders};
+    padding: 5px 10px;
+    box-sizing: border-box;
+}
+
+body.night .about-stats li {
+    border: 1px solid var(--post-borders-night)!important;
 }
 
 .biography p {
@@ -959,6 +992,10 @@ body.night .skill-cont p {
     padding: 0;
     box-sizing: border-box;
     border-radius: 10px;
+}
+
+body.night .skill {
+    background-color: var(--post-borders-night)!important;
 }
  
 .skill-set {
@@ -1124,6 +1161,14 @@ body.night .user:hover {
     padding-top: 10px;
 }
 
+.soundcloud_audio_player {
+    max-height:116px!important;
+}
+
+.spotify_audio_player {
+    max-height:80px!important;
+}
+
 /*----------POST INFO & PERMALINKS----------*/
 
 #perma-tall {
@@ -1153,8 +1198,8 @@ body.night #perma-tall {
 }
 
 body.night .date-line {
-    opacity: 0.3;
     transition: 0.6s;
+    background-color: var(--post-borders-night)!important;
 }
 
 .date-box {
@@ -1190,7 +1235,7 @@ body.night .date {
 }
 
 body.night .date a {
-    color: var(--links-night)!important;
+    color: var(--accented-text-night)!important;
     transition: 0.6s;
 }
 
@@ -1373,6 +1418,7 @@ body.night .bx-purchase-tag {
     white-space: nowrap;
     overflow: hidden;
     position: absolute;
+    line-height: 22px;
     width: {select:post size}px;
     height: 43px;
     font-size: 12px;
@@ -1459,8 +1505,8 @@ body.night #perma {
 }
 
 #perma span {
-    font-family: 'Merriweather', serif;
-    font-size: 1.3em;
+    font-weight: 700;
+    text-transform: uppercase;
 }
 
 #permatg {
@@ -1541,15 +1587,17 @@ body.night #notecontainer  {
 
 #permpage {
     text-align: center;
-    margin-top: 50px;
+    margin: 50px 0;
 }
  
 .bx-chevron-left-square, .bx-chevron-right-square {
     padding: 5px;
     font-size: 20px;
-    line-height: 14px;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    border-radius: 50%;
     display: inline-block;
-    height: 16px;
     margin: 0 10px;
     background-color: {color:accent};
     color: {color:accented text};
@@ -1563,6 +1611,7 @@ body.night #notecontainer  {
 
 body.night .bx-chevron-left-square, body.night .bx-chevron-right-square {
     color: var(--links-night)!important;
+    transition: 0.6s;
 }
  
 .bx-chevron-left-square:hover, .bx-chevron-right-square:hover {
@@ -1580,7 +1629,7 @@ body.night .bx-chevron-left-square, body.night .bx-chevron-right-square {
 .posts .title, .posts .link {
     color: {color:post title};
     font-family: 'Roboto Slab', serif;
-    padding: 20px 20px 10px;
+    padding: 20px 20px 25px;
     font-size: 1.5em;
     font-weight: 700;
     line-height: 200%;
@@ -1597,7 +1646,7 @@ body.night .posts .title, body.night .posts .link {
 .posts .title:before, .posts .link:before {
     content: '';
     position: absolute;
-    top: 100%;
+    top: 65px;
     left: 20px;
     width: 10%;
     height: 2px;
@@ -1642,6 +1691,10 @@ body.night .posts .link a:hover {
     padding-left: 20px;
     border-left: 1px solid {color:post borders};
     font-family: 'Roboto Slab', serif;
+}
+
+body.night .quote {
+    border-left: 1px solid var(--post-borders-night);
 }
  
 .bxs-quote-alt-left {
@@ -1764,7 +1817,7 @@ body.night .music_menu {
     margin-right: 20px;
     width: 40px;
     height: 40px;
-    border-radius: 100%;
+    border-radius: 50%;
     border: 5px solid {color:accent};
 }
 
@@ -1775,7 +1828,8 @@ body.night .music_menu {
     margin-left: 20px;
     width: 40px;
     height: 40px;
-    border-radius: 100%;
+    border-radius: 50%;
+    border: 5px solid {color:accent};
 }
  
 #asker {
@@ -1878,6 +1932,8 @@ body.night .answer {
 .question p {margin: 0!important;}
 .answer p {margin: 0!important;}
 .asker-link {font-weight: 700;}
+.answer img {margin-top: 15px;}
+.answer .npf_inst {margin-bottom: 0;}
  
 /*----------TUMBLR CHAT----------*/
 
@@ -1889,6 +1945,10 @@ body.night .answer {
     margin-top: 0px;
     padding: 20px;
     border-bottom: 1px solid {color:post borders};
+}
+
+body.night .chat .line {
+    border-bottom: 1px solid var(--post-borders-night)!important;
 }
  
 .chat .line:last-of-type {
@@ -2461,41 +2521,27 @@ body.night .morelinks a:hover {
 /*----------THEME CREDIT/DO NOT REMOVE!!!---------*/
  
 #bottom {
-    bottom: 8px;
+    bottom: 20px;
     position: fixed;
-    right: 20px;
+    right: 30px;
     z-index: 99;
-}
-
-#bottom a:hover {
-    color: {color:permalink hover};
+    display: flex;
 }
  
-.cred {
-    padding: 5px;
-    width: 14px;
-    height: 12px;
-    font-size: 15px;
-    line-height: 12px;
-    display: inline-block;
+.bxs-chevrons-up, .bx-copyright  {
+    padding: 3px;
+    font-size: 22px;
+    width: 22px;
+    height: 22px;
     background-color: {color:accent};
     color: {color:accented text};
-}
- 
-.bxs-chevrons-up {
-    padding: 5px;
-    width: 15px;
-    height: 12px;
-    font-size: 15px;
-    line-height: 12px;
-    display: block;
-    background-color: {color:accent};
-    color: {color:accented text};
-    transition: 0.6s;
+    border-radius: 5px;
+    margin: 0 2px;
 }
 
-body.night .bxs-chevrons-up {
-    color: var(--links-night)!important;
+body.night .bxs-chevrons-up, body.night .bx-copyright {
+    background-color: var(--accent-night)!important;
+    color: var(--accented-text-night)!important;
 }
  
 /*----------SCROLL TO TOP---------*/
@@ -2503,11 +2549,8 @@ body.night .bxs-chevrons-up {
 #scrollToTop:link,
 #scrollToTop:visited {
     display: none;
-    position: fixed;
     font-size: 12px;
-    bottom: 10px;
-    right: 42px;
-    color: {color:accented text};
+    color: var(--accented-text);
     padding: 0px 5px;
     width: auto;
     z-index: 900;
@@ -2538,11 +2581,13 @@ $(document).ready(function(){
 <body>
 
 <footer id="bottom">
+
 <!-----------SCROLL TO TOP ----------->
 <a href="javascript:;" id="scrollToTop" rel="nofollow" title="scroll to top"><i class="bx bxs-chevrons-up"></i></a>
 <!-----------SCROLL TO TOP ----------->
+
 <!-------------------DO NOT REMOVE THEME CREDIT!!!------------------->
- <a href="https://sheathemes.tumblr.com" class="cred" title="theme by sheathemes">&#169;</a>  
+ <a href="https://sheathemes.tumblr.com" target="_blank" title="theme by sheathemes"><i class='bx bx-copyright'></i></a>  
 <!-------------------DO NOT REMOVE THEME CREDIT!!!------------------->
 </footer>
 
@@ -3302,10 +3347,6 @@ Posted {ShortMonth} {DayOfMonthWithZero}, {Year} @ {12Hour} {AmPm}
 <!---------- Responsive tumblr videos and external iframes script ---------->
 <script src="https://rawgit.com/robinpx/tumblr/master/scripts/flexibleFrames/flexibleFrames.min.js"></script>
 <!---------- Responsive tumblr videos and external iframes script ---------->
-
-<!---------- inline images resizing script ---------->
-<script src="//dl.dropbox.com/s/1mztc6y7i6ry9ri/gtresizing.js"> </script>
-<!---------- inline images resizing script ---------->
 
 <!-----------Tooltips Script----------->
 <script src="https://unpkg.com/popper.js@1"></script> <script src="https://unpkg.com/tippy.js@5/dist/tippy-bundle.iife.js"></script> <link rel="stylesheet" href="https://unpkg.com/tippy.js@5/dist/svg-arrow.css" />
