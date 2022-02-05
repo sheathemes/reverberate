@@ -265,7 +265,7 @@ CREDITS
     --accent-night: {color:accent night};
     --accented-text-night: {color:accented text night};
     --background-night: {color:background night};
-    --lightbox-background-night: rgba(49, 49, 49, 0.6);
+    --lightbox-background-night: rgba({RGBcolor:background night}, 0.6);
     --text-night: {color:text night};
     --bold-night: {color:bold night};
     --italic-night: {color:italic night};
